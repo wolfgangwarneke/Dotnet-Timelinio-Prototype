@@ -1,0 +1,14 @@
+﻿@model Timelinio.Models.Event
+
+<h4>Add a new event</h4>
+@using (Html.BeginForm("CreateAJAX", "Events"))
+{
+    @Html.LabelFor(model => model.Title)
+    @Html.TextBoxFor(model => model.Title)
+    @Html.LabelFor(model => model.Date)
+    @Html.TextBoxFor(model => model.Date, new { type = "date" })
+    @Html.LabelFor(model => model.Description)
+    @Html.TextBoxFor(model => model.Description)
+    @Html.TextBoxFor(model => model.TimelineID, new { value = Model.TimelineID, type = "hidden" })
+    <input type="submit" value="Add new task" />
+}
