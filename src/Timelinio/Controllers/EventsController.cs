@@ -68,17 +68,17 @@ namespace Timelinio.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateAJAX([Bind("Date,Description,TimelineID,Title")] Event @event)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(@event);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return Json(@event);
             }
-            ViewData["TimelineID"] = new SelectList(_context.Timelines, "TimelineID", "Title", @event.TimelineID);
-            return Json(@event);
+            //ViewData["TimelineID"] = new SelectList(_context.Timelines, "TimelineID", "Title", @event.TimelineID);
+            return Json("ERROR - event was not added");
         }
 
         // GET: Events/Edit/5

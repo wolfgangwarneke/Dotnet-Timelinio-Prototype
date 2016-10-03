@@ -44,7 +44,7 @@
             @Html.DisplayNameFor(model => model.Events)
         </dt>
         <dd>
-            <table class="table">
+            <table class="table" id="events-table">
                 <tr>
                     <th>Event Name</th>
                     <th>Event Date</th>
@@ -75,3 +75,4 @@
     <a asp-action="Edit" asp-route-id="@Model.TimelineID">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+
