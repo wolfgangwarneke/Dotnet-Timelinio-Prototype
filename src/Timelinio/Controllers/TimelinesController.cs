@@ -22,7 +22,28 @@ namespace Timelinio.Controllers
         // GET: /<controller>/
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Timelines.ToListAsync());
+            return View(await _context.Timelines.Include(t => t.Focus).ToListAsync());
+        }
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var student = await _context.Timelines
+                .Include(e => e.Events)
+                .Include(f => f.Focus)
+                .AsNoTracking()
+                .SingleOrDefaultAsync(m => m.TimelineID == id);
+
+            if (student == null)
+            {
+                return NotFound();
+            }
+
+            return View(student);
         }
     }
 }
