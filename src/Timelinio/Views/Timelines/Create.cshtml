@@ -102,9 +102,9 @@
             var userName = "manasm";
 
             xmlHttp.onreadystatechange = function () {
-                alert(xmlHttp.readyState);
+                //alert(xmlHttp.readyState);
                 if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-                    alert(xmlHttp.responseText);
+                    //alert(xmlHttp.responseText);
                     var focusObject = JSON.parse(xmlHttp.responseText);
                     var name = focusObject.name;
                     var focusId = focusObject.focusID;
