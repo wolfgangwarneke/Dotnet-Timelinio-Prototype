@@ -43,6 +43,7 @@
             <label asp-for="FocusID" class="col-md-2 control-label"></label>
             <div class="col-md-10">
                 @Html.DropDownList("FocusID", (IEnumerable<SelectListItem>)ViewBag.FocusID )
+                <span id="createNewFocus" class="btn-default">Add new focus</span>
                 <span asp-validation-for="FocusID" class="text-danger"></span>
             </div>
         </div>
@@ -61,3 +62,66 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+<script>
+
+    var focusButton = document.getElementById('createNewFocus');
+
+    focusButton.addEventListener("click", function (event) {
+        console.log('clickity clackity');
+        var selectMenu = document.getElementById("FocusID");
+        var name = prompt("What is the name of this new focus?");
+        var description = prompt("Please provide a description for " + name + ", the new focus.")
+        var xmlHttp;
+        //Let us create the XML http object  
+        xmlHttp = null;
+
+        if (window.XMLHttpRequest) {
+            //for new browsers  
+            xmlHttp = new XMLHttpRequest();
+        }
+        else if (window.ActiveXObject) {
+            //for old ones  
+            //xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");  
+            var strName = "Msxml2.XMLHTTP"
+            if (navigator.appVersion.indexOf("MSIE 5.5") >= 0) {
+                strName = "Microsoft.XMLHTTP"
+            }
+            try {
+                xmlHttp = new ActiveXObject(strName);
+            }
+            catch (e) {
+                alert("Error. Scripting for ActiveX might be disabled")
+                return false;
+            }
+        }
+
+        if (xmlHttp != null) {
+            //Handle the response of this async request we just made(subscribe to callback)  
+            //xmlHttp.onreadystatechange = state_Change;  
+            var userName = "manasm";
+
+            xmlHttp.onreadystatechange = function () {
+                alert(xmlHttp.readyState);
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                    alert(xmlHttp.responseText);
+                    var focusObject = JSON.parse(xmlHttp.responseText);
+                    var name = focusObject.name;
+                    var focusId = focusObject.focusID;
+                    var option = document.createElement("option");
+                    option.text = name;
+                    option.value = focusId;
+                    option.selected = true;
+                    selectMenu.add(option);
+                }
+            }
+
+            //Pass the value to a web page on server as query string using XMLHttpObject.  
+            xmlHttp.open("POST", "MyAjaxPOST", true);
+            //var parameters = "userName=XXX";  
+            xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlHttp.send("Name=" + name + "&Description=" + description);
+        }
+    });
+
+</script>

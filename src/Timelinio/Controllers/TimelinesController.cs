@@ -74,5 +74,17 @@ namespace Timelinio.Controllers
                                    select f;
             ViewBag.FocusID = new SelectList(focusesQuery, "FocusID", "Name", selectedFocus);
         }
+
+        [HttpPost]
+        public async Task<ActionResult> MyAjaxPOST()
+        {
+            var newFocus = new Focus { Name = Request.Form["Name"], Description = Request.Form["Description"] };
+            //ViewBag.Message = "Your app description page.";
+            //string temp = Request.Form["userName"];
+            _context.Add(newFocus);
+            await _context.SaveChangesAsync();
+
+            return Json(newFocus);
+        }
     }
 }
