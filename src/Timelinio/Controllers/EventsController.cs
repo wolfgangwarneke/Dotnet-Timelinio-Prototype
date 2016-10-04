@@ -153,13 +153,13 @@ namespace Timelinio.Controllers
 
         // POST: Events/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var @event = await _context.Events.SingleOrDefaultAsync(m => m.EventID == id);
             _context.Events.Remove(@event);
             await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return PartialView("DeleteConfirmed");
         }
 
         private bool EventExists(int id)

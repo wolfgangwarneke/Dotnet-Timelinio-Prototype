@@ -141,10 +141,16 @@
         console.log(document);
         document.addEventListener('click', function (e) {
             if (e.target && e.target.id == 'deleteConfirm') {
-                alert('freakin A man!');
+                var r = new XMLHttpRequest();
+                r.open("POST", "../../events/delete/" + document.getElementById('deleteConfirm').value, true);
+                r.onreadystatechange = function () {
+                    if (r.readyState != 4 || r.status != 200) return;
+                    confirmationBox.innerHTML = r.responseText;
+                };
+                r.send("a=1&b=2&c=3");
             }
 
-            if (e.target && e.target.id == 'deleteDismiss') {
+            if (e.target && (e.target.id == 'deleteDismiss' || e.target.id == 'deleteConfirmDismiss')) {
                 confirmationBox.className = "hidden";
                 confirmationBox.innerHTML = "";
             }
