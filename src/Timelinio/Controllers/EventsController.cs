@@ -13,9 +13,9 @@ namespace Timelinio.Controllers
 {
     public class EventsController : Controller
     {
-        private readonly TimelineContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public EventsController(TimelineContext context)
+        public EventsController(ApplicationDbContext context)
         {
             _context = context;    
         }

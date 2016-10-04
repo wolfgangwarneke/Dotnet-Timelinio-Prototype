@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Timelinio.Models
 {
+    [Table("Events")]
     public class Event
     {
+        [Key]
         public int EventID { get; set; }
         public int TimelineID { get; set; }
         public string Title { get; set; }
@@ -14,7 +17,8 @@ namespace Timelinio.Models
 
         public Timeline Timeline { get; set; }
 
-        //public int UserID { get; set; }
-        //public ApplicationUser User { get; set; }
+        //public Event() {}
+
+        
     }
 }

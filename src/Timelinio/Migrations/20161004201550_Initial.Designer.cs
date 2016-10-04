@@ -1,21 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Timelinio.Data;
 
-namespace Timelinio.Data.Migrations
+namespace Timelinio.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20161004201550_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .HasAnnotation("ProductVersion", "1.0.0-rc3")
+                .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole", b =>
@@ -174,6 +173,66 @@ namespace Timelinio.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("Timelinio.Models.Event", b =>
+                {
+                    b.Property<int>("EventID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("Date");
+
+                    b.Property<string>("Description");
+
+                    b.Property<int>("TimelineID");
+
+                    b.Property<string>("Title");
+
+                    b.HasKey("EventID");
+
+                    b.HasIndex("TimelineID");
+
+                    b.ToTable("Events");
+                });
+
+            modelBuilder.Entity("Timelinio.Models.Focus", b =>
+                {
+                    b.Property<int>("FocusID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("FocusID");
+
+                    b.ToTable("Focuses");
+                });
+
+            modelBuilder.Entity("Timelinio.Models.Timeline", b =>
+                {
+                    b.Property<int>("TimelineID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("BeginDate");
+
+                    b.Property<string>("Description");
+
+                    b.Property<DateTime>("EndDate");
+
+                    b.Property<int>("FocusID");
+
+                    b.Property<string>("Title");
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("TimelineID");
+
+                    b.HasIndex("FocusID");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Timelines");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole")
@@ -209,6 +268,26 @@ namespace Timelinio.Data.Migrations
                         .WithMany("Roles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Timelinio.Models.Event", b =>
+                {
+                    b.HasOne("Timelinio.Models.Timeline", "Timeline")
+                        .WithMany("Events")
+                        .HasForeignKey("TimelineID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Timelinio.Models.Timeline", b =>
+                {
+                    b.HasOne("Timelinio.Models.Focus", "Focus")
+                        .WithMany("Timelines")
+                        .HasForeignKey("FocusID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Timelinio.Models.ApplicationUser", "User")
+                        .WithMany("Timelines")
+                        .HasForeignKey("UserId");
                 });
         }
     }
