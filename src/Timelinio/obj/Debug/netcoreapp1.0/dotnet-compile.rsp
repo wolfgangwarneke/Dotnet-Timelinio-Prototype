@@ -240,6 +240,10 @@ C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\src\Timelinio\
 C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\src\Timelinio\Data\ApplicationDbContext.cs
 C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\src\Timelinio\Migrations\20161004201550_Initial.cs
 C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\src\Timelinio\Migrations\20161004201550_Initial.Designer.cs
+C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\src\Timelinio\Migrations\20161004202111_userIdTimelineUpdate.cs
+C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\src\Timelinio\Migrations\20161004202111_userIdTimelineUpdate.Designer.cs
+C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\src\Timelinio\Migrations\20161004202159_userIdTimelineUpdates.cs
+C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\src\Timelinio\Migrations\20161004202159_userIdTimelineUpdates.Designer.cs
 C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\src\Timelinio\Migrations\ApplicationDbContextModelSnapshot.cs
 C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\src\Timelinio\Models\ApplicationUser.cs
 C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\src\Timelinio\Models\Event.cs

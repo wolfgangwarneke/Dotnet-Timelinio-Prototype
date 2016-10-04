@@ -7,6 +7,8 @@ using Timelinio.Models;
 using Timelinio.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -15,15 +17,20 @@ namespace Timelinio.Controllers
     public class TimelinesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public TimelinesController(ApplicationDbContext context)
+        public TimelinesController(UserManager<ApplicationUser> userManager, ApplicationDbContext context)
         {
             _context = context;
+            _userManager = userManager;
         }
         // GET: /<controller>/
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Timelines.Include(t => t.Focus).ToListAsync());
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var currentUser = await _userManager.FindByIdAsync(userId);
+            return View(await _context.Timelines.Where(x => x.User.Id == currentUser.Id).Include(t => t.Focus).ToListAsync());
+            //return View(await _context.Timelines.Include(t => t.Focus).ToListAsync());
         }
 
         public async Task<IActionResult> Details(int? id)
@@ -57,6 +64,9 @@ namespace Timelinio.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Credits,FocusID,Title,Description,BeginDate,EndDate")] Timeline timeline)
         {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var currentUser = await _userManager.FindByIdAsync(userId);
+            timeline.User = currentUser;
             if (ModelState.IsValid)
             {
                 _context.Add(timeline);

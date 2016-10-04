@@ -78,6 +78,11 @@ dt, tr th {
     width: 80%;
     margin: auto;
     border-radius: 30px;
+    box-shadow: 4px 6px 11px rgba(30,20,30,0.8);
+}
+
+#confirmationBox div div {
+    box-shadow: none;
 }
 
 #eventEditFormDiv {
