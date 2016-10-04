@@ -60,12 +60,9 @@
             if (xmlHttp != null) {
                 //Handle the response of this async request we just made(subscribe to callback)
                 //xmlHttp.onreadystatechange = state_Change;
-                var userName = "manasm";
 
                 xmlHttp.onreadystatechange = function () {
-                    //alert(xmlHttp.readyState);
                     if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-                        //alert(xmlHttp.responseText);
                         var eventObject = JSON.parse(xmlHttp.responseText);
                         var name = eventObject.title;
 
@@ -87,7 +84,7 @@
                         cell1.innerHTML = name;
                         cell2.innerHTML = formattedDate;
                         cell3.innerHTML = description;
-                        cell4.innerHTML = '<span class="eventDeleter btn-danger" id="' + eventID + '">Delete</span><br><span class="eventEditor btn-danger" id="' + eventID + 'edit">Edit</span>'
+                        cell4.innerHTML = '<span class="eventDeleter btn-danger" id="' + eventID + '">Delete</span><br /><span class="eventEditor btn-danger" id="' + eventID + 'edit">Edit</span>'
 
                     }
                 }
