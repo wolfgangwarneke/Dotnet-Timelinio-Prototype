@@ -16,7 +16,7 @@ namespace Timelinio.Models
         public Focus Focus { get; set; }
         public ICollection<Event> Events { get; set; }
 
-        public int UserID { get; set; }
-        public ApplicationUser User { get; set; }
+        //public int UserID { get; set; }
+        //public ApplicationUser User { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace Timelinio.Models
 
         public ICollection<Timeline> Timelines { get; set; }
 
-        public int UserID { get; set; }
-        public ApplicationUser User { get; set; }
+        //public int UserID { get; set; }
+        //public ApplicationUser User { get; set; }
     }
 }

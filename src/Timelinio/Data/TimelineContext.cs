@@ -12,6 +12,7 @@ namespace Timelinio.Data
         public DbSet<Focus> Focuses { get; set; }
         public DbSet<Timeline> Timelines { get; set; }
         public DbSet<Event> Events { get; set; }
+        //public DbSet<ApplicationUser> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
