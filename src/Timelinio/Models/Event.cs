@@ -13,5 +13,8 @@ namespace Timelinio.Models
         public DateTime Date { get; set; }
 
         public Timeline Timeline { get; set; }
+
+        public int UserID { get; set; }
+        public ApplicationUser User { get; set; }
     }
 }

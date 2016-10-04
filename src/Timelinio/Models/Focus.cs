@@ -10,5 +10,8 @@ namespace Timelinio.Models
         public string Description { get; set; }
 
         public ICollection<Timeline> Timelines { get; set; }
+
+        public int UserID { get; set; }
+        public ApplicationUser User { get; set; }
     }
 }
