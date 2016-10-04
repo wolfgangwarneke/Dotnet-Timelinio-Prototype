@@ -9,11 +9,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Timelinio.Controllers
 {
+    [Authorize]
     public class TimelinesController : Controller
     {
         private readonly ApplicationDbContext _context;

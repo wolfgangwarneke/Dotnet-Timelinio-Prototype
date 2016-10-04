@@ -8,6 +8,10 @@
     background-color: rgb(22, 7, 37);
 }
 
+.navbar-right ul li:last-child{
+    margin-right: 10px;
+}
+
 .container {
     background-color: rgba(100,0,200,0.3);
     max-width: 1000px;

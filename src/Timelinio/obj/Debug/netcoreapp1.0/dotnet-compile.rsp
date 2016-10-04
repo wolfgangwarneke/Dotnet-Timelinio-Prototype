@@ -265,6 +265,8 @@ C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\src\Timelinio\
 C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\src\Timelinio\Models\ManageViewModels\RemoveLoginViewModel.cs
 C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\src\Timelinio\Models\ManageViewModels\SetPasswordViewModel.cs
 C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\src\Timelinio\Models\ManageViewModels\VerifyPhoneNumberViewModel.cs
+C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\src\Timelinio\Models\Repositories\EFTimelineRepository.cs
+C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\src\Timelinio\Models\Repositories\ITimelineRepository.cs
 C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\src\Timelinio\Services\IEmailSender.cs
 C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\src\Timelinio\Services\ISmsSender.cs
 C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\src\Timelinio\Services\MessageServices.cs
