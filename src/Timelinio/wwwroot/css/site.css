@@ -19,12 +19,20 @@ footer {
     padding-left: 30px;
     padding-top: 10px;
     border-radius: 3px;
+    box-shadow: -3px -2px 3px rgb(56, 11, 130);
 }
 
 .logo {
     font-family: "Times New Roman", Times, serif;
     font-size: 2.2rem;
     color: mediumpurple !important;
+}
+
+#welcome {
+    font-style: italic;
+    font-weight: bolder;
+    color: #fff;
+    text-shadow: 2px 2px 2px rgba(56, 11, 130, 0.8);
 }
 
 .nav li {
@@ -82,6 +90,9 @@ dt, tr th {
 
 #homeLeft {
     color: rgb(35,3,67);
+    border-radius: 0;
+    border: 1px solid black;
+    box-shadow: 0 2px 8px black;
 }
 
 /* Wrapping element */

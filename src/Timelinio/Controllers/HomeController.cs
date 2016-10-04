@@ -15,14 +15,14 @@ namespace Timelinio.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "Want to know more about Timelinio?";
 
             return View();
         }
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Feedback? Get ahold of us.";
 
             return View();
         }
