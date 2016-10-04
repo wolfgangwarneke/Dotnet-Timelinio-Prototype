@@ -3,6 +3,20 @@
     padding-bottom: 20px;
 }
 
+#confirmationBox {
+	position: absolute;
+	top: 5%;
+	left: 5%;
+	width: 80%;
+	height: 80%;
+	padding: 16px;
+	border: 16px solid orange;
+    border-radius: 20px;
+	background-color: #ddd;
+	z-index:1002;
+	overflow: auto;
+}
+
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {

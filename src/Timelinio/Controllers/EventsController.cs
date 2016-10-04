@@ -148,7 +148,7 @@ namespace Timelinio.Controllers
                 return NotFound();
             }
 
-            return View(@event);
+            return PartialView(@event);
         }
 
         // POST: Events/Delete/5

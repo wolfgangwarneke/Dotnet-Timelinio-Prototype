@@ -49,6 +49,7 @@
                     <th>Event Name</th>
                     <th>Event Date</th>
                     <th>Event Description</th>
+                    <th></th>
                 </tr>
                 @foreach (var item in Model.Events)
                 {
@@ -62,6 +63,9 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.Description)
                         </td>
+                        <td>
+                            <span class="eventDeleter btn-danger" id="@item.EventID">Delete</span>
+                        </td>
                     </tr>
                 }
             </table>
@@ -72,7 +76,67 @@
     @Html.Partial("EventForm.cshtml", new Timelinio.Models.Event { TimelineID = Model.TimelineID })
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.TimelineID">Edit</a> |
+    <a asp-action="Edit" asp-route-id="@(Model.TimelineID)event">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
 
+<div class="hidden" id="confirmationBox">
+    
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', detailsPageScripts, false);
+    function detailsPageScripts() {
+        var confirmationBox = document.getElementById("confirmationBox");
+        var eventDeleters = document.getElementsByClassName("eventDeleter");
+        for (i = 0; i < eventDeleters.length; i++) {
+            eventDeleters[i].addEventListener('click', loadDeleteConfirm, false);
+        }
+        function loadDeleteConfirm() {
+            
+            console.log(this);
+
+            var url = "../../Events/Delete/" + parseInt(this.id);
+            var http_request = new XMLHttpRequest();
+            try {
+                // Opera 8.0+, Firefox, Chrome, Safari
+                http_request = new XMLHttpRequest();
+            } catch (e) {
+                // Internet Explorer Browsers
+                try {
+                    http_request = new ActiveXObject("Msxml2.XMLHTTP");
+
+                } catch (e) {
+
+                    try {
+                        http_request = new ActiveXObject("Microsoft.XMLHTTP");
+                    } catch (e) {
+                        // Something went wrong
+                        alert("Your browser broke!");
+                        return false;
+                    }
+
+                }
+            }
+
+            http_request.onreadystatechange = function () {
+
+                if (http_request.readyState == 4) {
+                    // Javascript function JSON.parse to parse JSON data
+                    var deleteConfirmPartial = http_request.responseText;
+                    alert("success");
+                    //console.log(url);
+                    //console.log(deleteConfirmPartial);
+                    confirmationBox.className = "";
+                    confirmationBox.innerHTML = deleteConfirmPartial;
+                }
+            }
+
+            http_request.open("GET", url, true);
+            //http_request.responseType = 'html';
+            http_request.send();
+
+        }
+
+    }
+</script>
