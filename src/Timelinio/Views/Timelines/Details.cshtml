@@ -4,10 +4,12 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>Details</h2>
+<div class="page-header">
+    <h2>@Model.Title</h2>
+    <h4 class="">Timeline Details</h4>
+</div>
 
 <div>
-    <h4>Student</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -125,7 +127,7 @@
                 if (http_request.readyState == 4) {
                     // Javascript function JSON.parse to parse JSON data
                     var deleteConfirmPartial = http_request.responseText;
-                    alert("success");
+                    //alert("success");
                     //console.log(url);
                     //console.log(deleteConfirmPartial);
                     confirmationBox.className = "";

@@ -1,6 +1,52 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: rgb(246,238,252)
+}
+
+.navbar {
+    background-color: rgb(22, 7, 37);
+}
+
+.container {
+    background-color: rgba(100,0,200,0.3);
+    max-width: 1000px;
+}
+
+footer {
+    background-color: rgb(40, 10, 70);
+    color: #c5c3c6;
+    padding-left: 30px;
+    padding-top: 10px;
+    border-radius: 3px;
+}
+
+.logo {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 2.2rem;
+    color: mediumpurple !important;
+}
+
+.nav li {
+    font-variant: small-caps;
+}
+
+.nav li a {
+    padding-left: 10px;
+}
+
+h2 {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 4rem;
+}
+
+dl {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.7rem;
+}
+
+dt, tr th {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
 #confirmationBox {
@@ -18,9 +64,24 @@
 }
 
 #confirmationBox div {
-    background-color: rgb(230, 176, 84);
+    /*background-color: rgb(230, 176, 84);*/
+    background-color: rgba(233,201,84,0.85);
     padding: 10px 24px;
+    width: 80%;
+    margin: auto;
     border-radius: 30px;
+}
+
+#eventEditFormDiv {
+    background-color: rgba(91,36,145,1);
+}
+
+.well {
+    background-color: rgb(235, 226, 244);
+}
+
+#homeLeft {
+    color: rgb(35,3,67);
 }
 
 /* Wrapping element */
@@ -35,6 +96,8 @@ input,
 select,
 textarea {
     max-width: 280px;
+    background-color: rgba(142,111,0,0.07);
+    margin: 5px;
 }
 
 /* Carousel */
