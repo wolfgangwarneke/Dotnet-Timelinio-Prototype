@@ -165,10 +165,64 @@
                     if (r.readyState != 4 || r.status != 200) return;
                     confirmationBox.innerHTML = r.responseText;
                 };
-                r.send("a=1&b=2&c=3");
+                r.send();
+            }
+            if (e.target && e.target.id == 'editSave') {
+                e.preventDefault();
+                var xmlHttp;
+                //Let us create the XML http object  
+                xmlHttp = null;
+
+                if (window.XMLHttpRequest) {
+                    //for new browsers  
+                    xmlHttp = new XMLHttpRequest();
+                }
+                else if (window.ActiveXObject) {
+                    //for old ones  
+                    //xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");  
+                    var strName = "Msxml2.XMLHTTP"
+                    if (navigator.appVersion.indexOf("MSIE 5.5") >= 0) {
+                        strName = "Microsoft.XMLHTTP"
+                    }
+                    try {
+                        xmlHttp = new ActiveXObject(strName);
+                    }
+                    catch (e) {
+                        alert("Error. Scripting for ActiveX might be disabled")
+                        return false;
+                    }
+                }
+
+                if (xmlHttp != null) {
+                    //Handle the response of this async request we just made(subscribe to callback)  
+                    //xmlHttp.onreadystatechange = state_Change;  
+                    var userName = "manasm";
+
+                    xmlHttp.onreadystatechange = function () {
+                        alert(xmlHttp.readyState);
+                        if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                            confirmationBox.innerHTML = xmlHttp.responseText;
+                        }
+                    }
+
+                    //Pass the value to a web page on server as query string using XMLHttpObject.  
+                    xmlHttp.open("POST", "../../Events/Edit/" + parseInt(document.getElementById("editSave").getAttribute("value")), true);
+                    //var parameters = "userName=XXX";  
+                    xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    console.log(document.getElementById("editEventDate").getAttribute("value"));
+                    xmlHttp.send("Title=" + document.getElementById("editEventTitle").value + "&Description=" + document.getElementById("editEventDescription").value + "&Date=" + document.getElementById("editEventDate").value);
+                }
+                //console.log(document.getElementById("EventID").getAttribute("value"));
+                //r.send("EventID=" + document.getElementById("EventID").getAttribute("value") +
+                //        "&Title=" + document.getElementById("Title").getAttribute("value") +
+                //        "&Date=" + document.getElementById("Date").getAttribute("value") +
+                //        "&Description=" + document.getElementById("Description").getAttribute("value") +
+                //        "&TimelineID=" + document.getElementById("TimelineID").getAttribute("value"));
+                //r.send("&Title=" + document.getElementById("Title").getAttribute("value") +
+                //        "&Description=" + document.getElementById("Description").getAttribute("value"));
             }
 
-            if (e.target && (e.target.id == 'deleteDismiss' || e.target.id == 'deleteConfirmDismiss')) {
+            if (e.target && ((e.target.id == 'deleteDismiss' || e.target.id == 'deleteConfirmDismiss') || e.target.id == 'editDismiss')) {
                 confirmationBox.className = "hidden";
                 confirmationBox.innerHTML = "";
                 if (e.target.id == "deleteConfirmDismiss") {
@@ -180,7 +234,7 @@
                             break;
                         }
                     }
-                } else {
+                } else if (e.target.id == "deleteDismiss") {
                     var deletersToFindToRemoveData = document.getElementsByClassName('eventDeleter');
             
                     for (i = 0; i < deletersToFindToRemoveData.length; i++) {

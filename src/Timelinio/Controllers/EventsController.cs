@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Timelinio.Data;
 using Timelinio.Models;
+using System.Globalization;
 
 namespace Timelinio.Controllers
 {
@@ -102,9 +103,12 @@ namespace Timelinio.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("EventID,Date,Description,TimelineID,Title")] Event @event)
+        //[ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id)
         {
+            var questin = Request;
+            Event @event = await _context.Events
+                            .SingleOrDefaultAsync(x => x.EventID == id);
             if (id != @event.EventID)
             {
                 return NotFound();
@@ -114,6 +118,9 @@ namespace Timelinio.Controllers
             {
                 try
                 {
+                    @event.Title = Request.Form["Title"];
+                    @event.Description = Request.Form["Description"];
+                    @event.Date = DateTime.ParseExact(Request.Form["Date"], "yyyy-MM-dd", CultureInfo.InvariantCulture);
                     _context.Update(@event);
                     await _context.SaveChangesAsync();
                 }
@@ -128,9 +135,9 @@ namespace Timelinio.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction("Index");
+                return PartialView("EditConfirmed");
             }
-            ViewData["TimelineID"] = new SelectList(_context.Timelines, "TimelineID", "TimelineID", @event.TimelineID);
+            //ViewData["TimelineID"] = new SelectList(_context.Timelines, "TimelineID", "TimelineID", @event.TimelineID);
             return View(@event);
         }
 

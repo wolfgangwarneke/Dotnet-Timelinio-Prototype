@@ -11,36 +11,35 @@
             <div class="form-group">
                 <label asp-for="Date" class="col-md-2 control-label"></label>
                 <div class="col-md-10">
-                    <input asp-for="Date" class="form-control" type="date" />
+                    <input id="editEventDate" class="form-control" type="date" asp-for=@Model.Date/>
                     <span asp-validation-for="Date" class="text-danger" />
                 </div>
             </div>
             <div class="form-group">
                 <label asp-for="Description" class="col-md-2 control-label"></label>
                 <div class="col-md-10">
-                    <input asp-for="Description" class="form-control" />
+                    <input id="editEventDescription" class="form-control" />
                     <span asp-validation-for="Description" class="text-danger" />
                 </div>
             </div>
-                    <input asp-for="TimelineID" type="hidden" asp-items="Model.TimelineID" />
-
+        <input asp-for="TimelineID" type="hidden" asp-items="Model.TimelineID" />
             <div class="form-group">
                 <label asp-for="Title" class="col-md-2 control-label"></label>
                 <div class="col-md-10">
-                    <input asp-for="Title" class="form-control" />
+                    <input id="editEventTitle" class="form-control" />
                     <span asp-validation-for="Title" class="text-danger" />
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="btn btn-default" />
+                    <button class="btn-primary btn-lg" id="editSave" value="@Model.EventID">Save</button>
                 </div>
             </div>
         </div>
     </form>
 
     <div>
-        <a asp-action="Index">Back to List</a>
+        <button class="btn-lg" id="editDismiss">Go Back</button>
     </div>
 
 </div>
