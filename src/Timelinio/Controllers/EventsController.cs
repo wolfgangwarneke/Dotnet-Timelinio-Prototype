@@ -95,7 +95,7 @@ namespace Timelinio.Controllers
                 return NotFound();
             }
             ViewData["TimelineID"] = new SelectList(_context.Timelines, "TimelineID", "TimelineID", @event.TimelineID);
-            return View(@event);
+            return PartialView(@event);
         }
 
         // POST: Events/Edit/5

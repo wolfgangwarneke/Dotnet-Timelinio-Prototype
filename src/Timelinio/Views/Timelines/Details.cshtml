@@ -65,6 +65,7 @@
                         </td>
                         <td>
                             <span class="eventDeleter btn-danger" id="@item.EventID">Delete</span>
+                            <span class="eventEditor btn-danger" id="@(item.EventID)edit">Edit</span>
                         </td>
                     </tr>
                 }
@@ -138,7 +139,23 @@
 
         }
 
-        console.log(document);
+        var eventEditors = document.getElementsByClassName("eventEditor");
+        for (i = 0; i < eventEditors.length; i++) {
+            eventEditors[i].addEventListener('click', loadEdit, false);
+        }
+        function loadEdit() {
+            //alert(this.getAttribute('id'));
+            var r = new XMLHttpRequest();
+            r.open("GET", "../../events/edit/" + parseInt(this.getAttribute('id')), true);
+            r.onreadystatechange = function () {
+                if (r.readyState != 4 || r.status != 200) return;
+                confirmationBox.className = "";
+                confirmationBox.innerHTML = r.responseText;
+            };
+            r.send("a=1&b=2&c=3");
+
+        }
+
         document.addEventListener('click', function (e) {
             var row;
             if (e.target && e.target.id == 'deleteConfirm') {
