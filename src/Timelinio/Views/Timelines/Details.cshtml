@@ -138,5 +138,18 @@
 
         }
 
+        console.log(document);
+        document.addEventListener('click', function (e) {
+            if (e.target && e.target.id == 'deleteConfirm') {
+                alert('freakin A man!');
+            }
+
+            if (e.target && e.target.id == 'deleteDismiss') {
+                confirmationBox.className = "hidden";
+                confirmationBox.innerHTML = "";
+            }
+        });
+
     }
+    
 </script>
