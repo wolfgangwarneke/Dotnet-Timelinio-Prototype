@@ -93,7 +93,7 @@
             eventDeleters[i].addEventListener('click', loadDeleteConfirm, false);
         }
         function loadDeleteConfirm() {
-            
+            this.setAttribute("data", "deletionCandidate");
             console.log(this);
 
             var url = "../../Events/Delete/" + parseInt(this.id);
@@ -140,6 +140,7 @@
 
         console.log(document);
         document.addEventListener('click', function (e) {
+            var row;
             if (e.target && e.target.id == 'deleteConfirm') {
                 var r = new XMLHttpRequest();
                 r.open("POST", "../../events/delete/" + document.getElementById('deleteConfirm').value, true);
@@ -153,6 +154,18 @@
             if (e.target && (e.target.id == 'deleteDismiss' || e.target.id == 'deleteConfirmDismiss')) {
                 confirmationBox.className = "hidden";
                 confirmationBox.innerHTML = "";
+                if (e.target.id == "deleteConfirmDismiss") {
+                    var deletersToFindIndex = document.getElementsByClassName('eventDeleter');
+                    for (i = 0; i < deletersToFindIndex.length; i++) {
+                        if (deletersToFindIndex[i].getAttribute("data") === "deletionCandidate") {
+                            var rowToDelete = document.getElementsByTagName("tr")[i + 1];
+                            rowToDelete.remove();
+                            break;
+                        }
+
+                    }
+
+                }
             }
         });
 
