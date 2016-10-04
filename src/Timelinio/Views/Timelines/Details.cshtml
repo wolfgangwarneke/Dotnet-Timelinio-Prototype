@@ -162,9 +162,13 @@
                             rowToDelete.remove();
                             break;
                         }
-
                     }
-
+                } else {
+                    var deletersToFindToRemoveData = document.getElementsByClassName('eventDeleter');
+            
+                    for (i = 0; i < deletersToFindToRemoveData.length; i++) {
+                        if (deletersToFindToRemoveData[i].getAttribute("data") === "deletionCandidate") deletersToFindToRemoveData[i].removeAttribute("data");
+                    }
                 }
             }
         });
