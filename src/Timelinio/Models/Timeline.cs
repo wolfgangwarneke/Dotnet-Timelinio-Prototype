@@ -10,7 +10,7 @@ namespace Timelinio.Models
     {
         [Key]
         public int TimelineID { get; set; }
-        //public int UserID { get; set; }
+        public int UserID { get; set; }
         public virtual ApplicationUser User { get; set; }
         public int FocusID { get; set; }
         public Focus Focus { get; set; }
