@@ -21,17 +21,25 @@ namespace Timelinio.Controllers
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
 
-        public TimelinesController(UserManager<ApplicationUser> userManager, ApplicationDbContext context)
+        public TimelinesController(ApplicationDbContext context, UserManager<ApplicationUser> userManager = null)
         {
             _context = context;
             _userManager = userManager;
         }
         // GET: /<controller>/
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
-            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            var currentUser = await _userManager.FindByIdAsync(userId);
-            return View(await _context.Timelines.Where(x => x.User.Id == currentUser.Id).Include(t => t.Focus).ToListAsync());
+            if (_userManager != null)
+            {
+                var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                var currentUser = await _userManager.FindByIdAsync(userId);
+                return View(await _context.Timelines.Where(x => x.User.Id == currentUser.Id).Include(t => t.Focus).ToListAsync());
+            }
+            else
+            {
+                return View("Index", "Home");
+            }
             //return View(await _context.Timelines.Include(t => t.Focus).ToListAsync());
         }
 
