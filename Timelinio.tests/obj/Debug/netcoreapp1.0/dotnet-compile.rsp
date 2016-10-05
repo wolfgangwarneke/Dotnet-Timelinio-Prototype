@@ -1,5 +1,5 @@
---temp-output:C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.tests\obj\Debug\netcoreapp1.0\
---out:C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.tests\bin\Debug\netcoreapp1.0\Timelinio.tests.dll
+--temp-output:C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.Tests\obj\Debug\netcoreapp1.0\
+--out:C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.Tests\bin\Debug\netcoreapp1.0\Timelinio.Tests.dll
 --define:DEBUG
 --define:TRACE
 --define:NETCOREAPP1_0
@@ -7,7 +7,7 @@
 --suppress-warning:CS1702
 --suppress-warning:CS1705
 --optimize:False
---output-name:Timelinio.tests
+--output-name:Timelinio.Tests
 --file-version:1.0.0.0
 --version:1.0.0.0
 --informational-version:1.0.0
@@ -208,33 +208,6 @@
 --reference:C:\Users\Wolfgang\.nuget\packages\xunit.runner.reporters\2.2.0-beta2-build3300\lib\netstandard1.1\xunit.runner.reporters.dotnet.dll
 --reference:C:\Users\Wolfgang\.nuget\packages\xunit.runner.utility\2.2.0-beta2-build3300\lib\netstandard1.1\xunit.runner.utility.dotnet.dll
 --reference:C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\src\Timelinio\bin\Debug\netcoreapp1.0\Timelinio.dll
-C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.tests\Program.cs
-C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.tests\Startup.cs
-C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.tests\TimelineTest.cs
-C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.tests\Controllers\AccountController.cs
-C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.tests\Controllers\HomeController.cs
-C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.tests\Controllers\ManageController.cs
-C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.tests\Data\ApplicationDbContext.cs
-C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.tests\Data\Migrations\00000000000000_CreateIdentitySchema.cs
-C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.tests\Data\Migrations\00000000000000_CreateIdentitySchema.Designer.cs
-C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.tests\Data\Migrations\ApplicationDbContextModelSnapshot.cs
-C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.tests\Models\ApplicationUser.cs
-C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.tests\Models\AccountViewModels\ExternalLoginConfirmationViewModel.cs
-C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.tests\Models\AccountViewModels\ForgotPasswordViewModel.cs
-C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.tests\Models\AccountViewModels\LoginViewModel.cs
-C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.tests\Models\AccountViewModels\RegisterViewModel.cs
-C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.tests\Models\AccountViewModels\ResetPasswordViewModel.cs
-C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.tests\Models\AccountViewModels\SendCodeViewModel.cs
-C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.tests\Models\AccountViewModels\VerifyCodeViewModel.cs
-C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.tests\Models\ManageViewModels\AddPhoneNumberViewModel.cs
-C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.tests\Models\ManageViewModels\ChangePasswordViewModel.cs
-C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.tests\Models\ManageViewModels\ConfigureTwoFactorViewModel.cs
-C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.tests\Models\ManageViewModels\FactorViewModel.cs
-C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.tests\Models\ManageViewModels\IndexViewModel.cs
-C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.tests\Models\ManageViewModels\ManageLoginsViewModel.cs
-C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.tests\Models\ManageViewModels\RemoveLoginViewModel.cs
-C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.tests\Models\ManageViewModels\SetPasswordViewModel.cs
-C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.tests\Models\ManageViewModels\VerifyPhoneNumberViewModel.cs
-C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.tests\Services\IEmailSender.cs
-C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.tests\Services\ISmsSender.cs
-C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.tests\Services\MessageServices.cs
+C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.Tests\Program.cs
+C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.Tests\Startup.cs
+C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\Timelinio\Timelinio.Tests\TimelineTest.cs

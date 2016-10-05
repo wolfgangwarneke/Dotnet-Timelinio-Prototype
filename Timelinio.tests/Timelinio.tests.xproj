@@ -6,8 +6,8 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\DotNet\Microsoft.DotNet.Props" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup Label="Globals">
-    <ProjectGuid>018e09d2-beb8-41db-8c7b-e8b85689ba30</ProjectGuid>
-    <RootNamespace>Timelinio.tests</RootNamespace>
+    <ProjectGuid>54bddfc0-f42d-474d-b780-74a90e8f41dc</ProjectGuid>
+    <RootNamespace>Timelinio.Tests</RootNamespace>
     <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">.\obj</BaseIntermediateOutputPath>
     <OutputPath Condition="'$(OutputPath)'=='' ">.\bin\</OutputPath>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>

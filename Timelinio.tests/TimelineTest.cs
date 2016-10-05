@@ -1,9 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Timelinio.Controllers;
-using Timelinio.Models;
+﻿using Timelinio.Models;
 using Xunit;
 
-namespace ToDoList.Tests
+namespace Timelinio.Tests
 {
     public class ItemTest
     {
@@ -12,27 +10,15 @@ namespace ToDoList.Tests
         {
             //Arrange
             var timeline = new Timeline();
-            timeline.Description = "Super cool test timeline";
+            timeline.Title = "Cool Test";
+            timeline.Description = "It's a super cool test.";
+
             //Act
-            var result = timeline.Description;
-
+            var result = timeline.Title;
+            var result2 = timeline.Description;
+            
             //Assert
-            Assert.Equal("Super cool test timeline", result);
+            Assert.Equal("Cool Test" + "It's a super cool test.", result + result2);
         }
-
-        //[Fact]
-        //public void Get_ModelList_Index_Test()
-        //{
-        //    //Arrange
-        //    TimelinesController controller = new TimelinesController();
-        //    IActionResult actionResult = controller.Index();
-        //    ViewResult indexView = controller.Index() as ViewResult;
-
-        //    //Act
-        //    var result = indexView.ViewData.Model;
-
-        //    //Assert
-        //    Assert.IsType<List<Item>>(result);
-        //}
     }
 }

@@ -93,6 +93,11 @@ dt, tr th {
     background-color: rgba(91,36,145,1);
 }
 
+#eventEditFormDiv label {
+    padding-right: 90px;
+    text-shadow: 2px 0px rgba(200,200,220,0.8);
+}
+
 .well {
     background-color: rgb(235, 226, 244);
 }
@@ -102,6 +107,21 @@ dt, tr th {
     border-radius: 0;
     border: 1px solid black;
     box-shadow: 0 2px 8px black;
+}
+
+.eventDeleter, .eventEditor {
+    border: 3px groove rgba(190,190,240,0.4);
+    padding: 3px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px black;
+    margin-bottom: -7px;
+    background: rgba(94, 70, 132, 0.80);
+    color: aliceblue;
+    cursor: pointer;
+}
+
+.eventEditor {
+
 }
 
 /* Wrapping element */
