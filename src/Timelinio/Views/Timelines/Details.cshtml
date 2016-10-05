@@ -58,6 +58,7 @@
                     <tr>
                         <td>
                             @Html.DisplayFor(modelItem => item.Title)
+                            <span class="glyphicon glyphicon-phone" data-id=@item.EventID aria-hidden="true"></span>
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Date)
@@ -244,7 +245,22 @@
                     }
                 }
             }
-        });
+
+            if (e.target && e.target.className == "glyphicon glyphicon-phone") {
+                alert("I am so happy");
+                var eventId = e.target.getAttribute('data-id');
+                var r = new XMLHttpRequest();
+                r.open("GET", "../../events/sendeventtext/" + eventId, true);
+                r.onreadystatechange = function () {
+                    if (r.readyState != 4 || r.status != 200) return;
+                    //console.log(r.responseText);
+                    confirmationBox.className = "";
+                    confirmationBox.innerHTML = r.responseText;
+                };
+                r.send();
+
+            }
+        });// end of document delegated binding
 
     }
     

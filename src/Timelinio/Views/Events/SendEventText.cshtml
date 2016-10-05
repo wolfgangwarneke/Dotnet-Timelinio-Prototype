@@ -1,18 +1,17 @@
 ﻿@model Timelinio.Models.EventText
-
-<h2>Send a new message</h2>
-<hr />
-<form asp-action="SendEventText" method="post">
-    <input name="To" id="To" type="hidden" value=@Timelinio.Models.EnvironmentVariables.OwnPhone>
-    <input name="From" id="From" type="hidden" value=@Timelinio.Models.EnvironmentVariables.TwilioPhone>
-    <label asp-for="Body">Text message:</label><br />
-<textarea name="Body" id="Body" cols="50" rows="8">
+<div>
+    <h2>Send a new message</h2>
+    <hr />
+    <form asp-action="SendEventText" method="post">
+        <input name="To" id="To" type="hidden" value=@Timelinio.Models.EnvironmentVariables.OwnPhone>
+        <input name="From" id="From" type="hidden" value=@Timelinio.Models.EnvironmentVariables.TwilioPhone>
+        <label asp-for="Body">Text message:</label><br />
+        <textarea name="Body" id="Body" cols="50" rows="8">
 @ViewData["eventTitle"] - @ViewData["eventDate"]
 @ViewData["eventDescription"]
 Remember that one?
 (thanks for using Timelinio!)
-</textarea><br />
-    <input id="eventTextSubmit" type="submit" value="Send!" />
-</form>
-
-<h1>@ViewData["eventTitle"]</h1>
+        </textarea><br />
+        <input id="eventTextSubmit" type="submit" value="Send!" />
+    </form>
+</div>

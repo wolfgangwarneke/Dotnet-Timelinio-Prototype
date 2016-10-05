@@ -124,6 +124,8 @@ dt, tr th {
 
 }
 
+
+
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
@@ -170,4 +172,11 @@ textarea {
   .carousel-caption {
     display: none
   }
+}
+
+
+textarea {
+    background-color: #e5e5ef;
+    padding: 6px;
+    border-radius: 3px;
 }
