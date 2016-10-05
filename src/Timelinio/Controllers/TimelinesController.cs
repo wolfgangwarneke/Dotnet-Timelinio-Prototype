@@ -40,7 +40,6 @@ namespace Timelinio.Controllers
             {
                 return View("Index", "Home");
             }
-            //return View(await _context.Timelines.Include(t => t.Focus).ToListAsync());
         }
 
         public async Task<IActionResult> Details(int? id)
@@ -99,8 +98,6 @@ namespace Timelinio.Controllers
         public async Task<ActionResult> MyAjaxPOST()
         {
             var newFocus = new Focus { Name = Request.Form["Name"], Description = Request.Form["Description"] };
-            //ViewBag.Message = "Your app description page.";
-            //string temp = Request.Form["userName"];
             _context.Add(newFocus);
             await _context.SaveChangesAsync();
 

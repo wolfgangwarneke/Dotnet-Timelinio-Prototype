@@ -98,8 +98,6 @@ dt, tr th {
 	width: 100%;
 	height: 100%;
 	padding: 30px 16px;
-	/*border: 70px solid rgba(255, 106, 0, 0.3);*/
-    /*border-radius: 20px;*/
 	background-color: rgba(200,200,220,0.8);
 	z-index:100209;
 	overflow: auto;
@@ -144,8 +142,6 @@ dt, tr th {
     padding: 3px;
     border-radius: 10px;
     box-shadow: 1px 1px 3px black;
-    /*margin-bottom: -7px;*/
-    /*margin-top: 6px;*/
     margin-right: 4px;
     background: rgba(94, 70, 132, 0.80);
     color: aliceblue;

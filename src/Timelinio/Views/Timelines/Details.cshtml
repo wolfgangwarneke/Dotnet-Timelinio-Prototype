@@ -98,7 +98,6 @@
         }
         function loadDeleteConfirm() {
             this.setAttribute("data", "deletionCandidate");
-            console.log(this);
 
             var url = "../../Events/Delete/" + parseInt(this.id);
             var http_request = new XMLHttpRequest();
@@ -128,9 +127,6 @@
                 if (http_request.readyState == 4) {
                     // Javascript function JSON.parse to parse JSON data
                     var deleteConfirmPartial = http_request.responseText;
-                    //alert("success");
-                    //console.log(url);
-                    //console.log(deleteConfirmPartial);
                     confirmationBox.className = "";
                     confirmationBox.innerHTML = deleteConfirmPartial;
                 }
@@ -147,7 +143,6 @@
             eventEditors[i].addEventListener('click', loadEdit, false);
         }
         function loadEdit() {
-            //alert(this.getAttribute('id'));
             var r = new XMLHttpRequest();
             r.open("GET", "../../events/edit/" + parseInt(this.getAttribute('id')), true);
             r.onreadystatechange = function () {
@@ -202,7 +197,6 @@
                     var userName = "manasm";
 
                     xmlHttp.onreadystatechange = function () {
-                        //alert(xmlHttp.readyState);
                         if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
                             confirmationBox.innerHTML = xmlHttp.responseText;
                         }
@@ -212,17 +206,8 @@
                     xmlHttp.open("POST", "../../Events/Edit/" + parseInt(document.getElementById("editSave").getAttribute("value")), true);
                     //var parameters = "userName=XXX";  
                     xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                    console.log(document.getElementById("editEventDate").getAttribute("value"));
                     xmlHttp.send("Title=" + document.getElementById("editEventTitle").value + "&Description=" + document.getElementById("editEventDescription").value + "&Date=" + document.getElementById("editEventDate").value);
                 }
-                //console.log(document.getElementById("EventID").getAttribute("value"));
-                //r.send("EventID=" + document.getElementById("EventID").getAttribute("value") +
-                //        "&Title=" + document.getElementById("Title").getAttribute("value") +
-                //        "&Date=" + document.getElementById("Date").getAttribute("value") +
-                //        "&Description=" + document.getElementById("Description").getAttribute("value") +
-                //        "&TimelineID=" + document.getElementById("TimelineID").getAttribute("value"));
-                //r.send("&Title=" + document.getElementById("Title").getAttribute("value") +
-                //        "&Description=" + document.getElementById("Description").getAttribute("value"));
             }
 
             if (e.target && ((e.target.id == 'deleteDismiss' || e.target.id == 'deleteConfirmDismiss') || e.target.id == 'editDismiss')) {
@@ -252,14 +237,13 @@
                 r.open("GET", "../../events/sendeventtext/" + eventId, true);
                 r.onreadystatechange = function () {
                     if (r.readyState != 4 || r.status != 200) return;
-                    //console.log(r.responseText);
                     confirmationBox.className = "";
                     confirmationBox.innerHTML = r.responseText;
                 };
                 r.send();
 
             }
-        });// end of document delegated binding
+        });// end of document delegated binding section
 
     }
     

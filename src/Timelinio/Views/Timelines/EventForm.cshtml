@@ -23,12 +23,8 @@
     document.addEventListener('DOMContentLoaded', pageScripts, false);
     function pageScripts() {
         var eventForm = document.getElementById('eventForm');
-        //var eventForm = eventForms[1];
-        //console.log(eventForms);
-        console.log(eventForm)
         eventForm.addEventListener("submit", function (evt) {
             evt.preventDefault();
-            console.log('clickity clackity');
             var TimelineID = document.getElementById("TimelineID").value;
             var Title = document.getElementById("Title").value;
             var date = document.getElementById("Date").value;
