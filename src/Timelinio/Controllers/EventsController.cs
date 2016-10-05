@@ -173,5 +173,21 @@ namespace Timelinio.Controllers
         {
             return _context.Events.Any(e => e.EventID == id);
         }
+
+        public async Task<IActionResult> SendEventText(int id)
+        {
+            Event eventTextEvent = await _context.Events.SingleOrDefaultAsync(m => m.EventID == id);
+            ViewData["eventTitle"] = eventTextEvent.Title;
+            ViewData["eventDescription"] = eventTextEvent.Description;
+            ViewData["eventDate"] = eventTextEvent.Date;
+            return PartialView();
+        }
+
+        [HttpPost]
+        public IActionResult SendEventText(EventText newEventText)
+        {
+            newEventText.Send();
+            return RedirectToAction("Index");
+        }
     }
 }

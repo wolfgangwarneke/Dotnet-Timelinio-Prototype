@@ -1,4 +1,4 @@
-﻿{
+{
   "userSecretsId": "aspnet-Timelinio-1757fee0-b95d-42d2-a747-1b4827486cdd",
 
   "dependencies": {
@@ -40,10 +40,12 @@
       "version": "1.0.0-preview2-final",
       "type": "build"
     },
-    "Microsoft.VisualStudio.Web.CodeGenerators.Mvc":  {
+    "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": {
       "version": "1.0.0-preview2-final",
       "type": "build"
-    }
+    },
+    "RestSharp.NetCore": "105.2.3",
+    "Newtonsoft.Json": "9.0.1"
   },
 
   "tools": {
