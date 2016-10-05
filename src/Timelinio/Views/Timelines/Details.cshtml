@@ -202,7 +202,7 @@
                     var userName = "manasm";
 
                     xmlHttp.onreadystatechange = function () {
-                        alert(xmlHttp.readyState);
+                        //alert(xmlHttp.readyState);
                         if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
                             confirmationBox.innerHTML = xmlHttp.responseText;
                         }
@@ -247,7 +247,6 @@
             }
 
             if (e.target && e.target.className == "glyphicon glyphicon-phone") {
-                alert("I am so happy");
                 var eventId = e.target.getAttribute('data-id');
                 var r = new XMLHttpRequest();
                 r.open("GET", "../../events/sendeventtext/" + eventId, true);

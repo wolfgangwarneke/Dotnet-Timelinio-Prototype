@@ -187,7 +187,7 @@ namespace Timelinio.Controllers
         public IActionResult SendEventText(EventText newEventText)
         {
             newEventText.Send();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Timelines");
         }
     }
 }

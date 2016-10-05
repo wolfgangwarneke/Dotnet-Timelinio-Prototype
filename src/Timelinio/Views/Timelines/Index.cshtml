@@ -50,9 +50,7 @@
                     @Html.DisplayFor(modelItem => item.EndDate)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.TimelineID">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.TimelineID">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.TimelineID">Delete</a>
+                    <a asp-action="Details" asp-route-id="@item.TimelineID">View</a>
                 </td>
             </tr>
         }

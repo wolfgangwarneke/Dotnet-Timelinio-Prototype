@@ -3,8 +3,8 @@
 <div class="well well-sm">
     <h4>Add a new event</h4>
 
-    @using (Html.BeginForm("CreateAJAX", "Events", new { id = "eventform" }))
-    {
+    
+    <form asp-action="CreateAJAX" asp-controller="Events" id="eventForm">
         @Html.LabelFor(model => model.Title)
         @Html.TextBoxFor(model => model.Title)
         @Html.LabelFor(model => model.Date)
@@ -13,7 +13,7 @@
         @Html.TextBoxFor(model => model.Description)
         @Html.TextBoxFor(model => model.TimelineID, new { value = Model.TimelineID, type = "hidden" })
         <input type="submit" value="Add new task" />
-    }
+    </form>
 
 </div>
 
@@ -22,10 +22,10 @@
 
     document.addEventListener('DOMContentLoaded', pageScripts, false);
     function pageScripts() {
-        var eventForms = document.getElementsByTagName('form');
-        var eventForm = eventForms[0];
-        console.log(eventForms);
-        console.log(eventForm);
+        var eventForm = document.getElementById('eventForm');
+        //var eventForm = eventForms[1];
+        //console.log(eventForms);
+        console.log(eventForm)
         eventForm.addEventListener("submit", function (evt) {
             evt.preventDefault();
             console.log('clickity clackity');
