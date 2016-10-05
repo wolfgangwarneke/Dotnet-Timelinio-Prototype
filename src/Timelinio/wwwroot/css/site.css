@@ -85,6 +85,12 @@ dt, tr th {
     font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
+.buttonCell {
+    min-width: 140px;
+    text-align: center;
+    padding-top: 18px !important;
+}
+
 #confirmationBox {
 	position: absolute;
 	top: 0%;
@@ -138,10 +144,15 @@ dt, tr th {
     padding: 3px;
     border-radius: 10px;
     box-shadow: 1px 1px 3px black;
-    margin-bottom: -7px;
+    /*margin-bottom: -7px;*/
+    /*margin-top: 6px;*/
+    margin-right: 4px;
     background: rgba(94, 70, 132, 0.80);
     color: aliceblue;
     cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.3rem;
+    font-variant: small-caps;
 }
 
 .eventEditor {
