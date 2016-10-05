@@ -1,6 +1,6 @@
 # _Timelinio (*Prototype*)_
 
-#### _A timeline visualization tool to help keep track of your life (or anything else), October 4th, 2016_
+#### _A timeline visualization tool to help keep track of your life (or anything else), October 5th, 2016_
 
 #### By _**Wolfgang Warneke**_
 
@@ -15,14 +15,17 @@ _In the future (**the future, Conan?**), this whole app will have a sleekly attr
 * _Are you running SQL Server?_
 * _Clone the project and open it in Visual Studio._
 * _Wait for the packages to restore..._
-* _Run it.  A database initializer will prepopulate an initial environment for you to mess around with!_
-* _Enjoy and please do send any feedback my way!  I'd love to hear from you and I am eager to learn and improve!_
+* _Navigate to the project folder on your command line and run `dotnet ef database update`_
+* _Run it!_
+* _Enjoy and please do send any feedback my way; I'd love to hear from you and I am eager to learn and improve!_
 
 _(When the test user information is ready, I'll put it here)_
 
 ## Known Bugs
 
-_Some stuff looks weird.  Newly created events don't have delete and edit buttons.  Some time formatting is whack._
+* _Newly created events don't have functional delete and edit buttons._
+* _Updating an event saves new values, but does not reflect changes on current page_
+* _Update event form has prepopulated DATE field, but TITLE and DESCRIPTION are blank_
 
 ## Support and contact details
 
